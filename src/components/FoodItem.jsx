@@ -6,23 +6,26 @@ import React from 'react'
 import { Typography } from '@mui/material';
 import CardContent from '@mui/material/CardContent/CardContent'
 
-const FoodItem = () => {
-    const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+const FoodItem = (props) => {
+    const {name, price, category, image} = props;
   return (
     <Card m={2}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="190"
-          image="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MXx8fGVufDB8fHx8&w=1000&q=80"
+          image={image}
           alt="green iguana"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            Food 1
+           {name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Price : Rs 40
+            Price : Rs{price}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Category : {category}
           </Typography>
         </CardContent>
       </CardActionArea>

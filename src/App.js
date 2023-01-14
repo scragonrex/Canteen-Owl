@@ -7,16 +7,19 @@ import {
 import Login from './components/Login';
 import HomeSF from './components/HomeSF';
 import HomeO from './components/HomeO';
+import FoodItemState from './components/context/FoodItemState';
 
 function App() {
   return (
-<BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Login/>} />
-        <Route path="/HomeSF" element={<HomeSF/>} />
-        <Route path="/HomeO" element={<HomeO/>} />
-      </Routes>
-</BrowserRouter>
+    <FoodItemState>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/HomeSF" element={<HomeSF />} />
+          <Route path="/HomeO" element={<HomeO />} />
+        </Routes>
+      </BrowserRouter>
+    </FoodItemState>
   );
 }
 
