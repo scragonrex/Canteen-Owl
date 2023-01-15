@@ -1,6 +1,6 @@
 import { Typography } from '@mui/material';
 import Box from '@mui/material/Box/Box';
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import FoodItem from './FoodItem';
 import Navabar from './Navabar';
 import FoodItemContext from './context/FoodItemContext';

@@ -3,10 +3,11 @@ import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import { Avatar } from '@mui/material';
 import styled from '@emotion/styled';
 import { Link } from 'react-router-dom';
+import { UserAuth } from './context/AuthContext';
+import { Navigate } from 'react-router-dom'
 const Navabar = () => {
   const Item=styled(Link)(({theme})=>
   (
@@ -26,6 +27,15 @@ const Navabar = () => {
          },
   }
   ));
+  const {user, logOut} = UserAuth();
+    const handleLogOut = async()=>{
+        try {
+            await logOut();
+            
+        } catch (error) {
+          console.log(error);  
+        }
+    }
   return (
     <Box sx={{ flexGrow: 1 }}>
     <AppBar position="static">
@@ -35,6 +45,7 @@ const Navabar = () => {
         </Typography>
         <Box ml={1} sx={{display:'flex', alignItems:'center'}}><Item sx={{color:'white'}}/><Item to='/HomeSF'>HomeSF</Item></Box>
         <Box ml={1} sx={{display:'flex', alignItems:'center'}}><Item sx={{color:'white'}}/><Item to='/HomeO'>HomeO</Item></Box>
+        <Box ml={1} sx={{display:'flex', alignItems:'center'}}>{user?.displayName?<button onClick={handleLogOut}>Logout</button> : <Link to='/'>Signin</Link>}</Box>
         <Avatar sx={{ bgcolor: 'purple' }}>N</Avatar>
       </Toolbar>
     </AppBar>

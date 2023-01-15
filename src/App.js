@@ -8,18 +8,24 @@ import Login from './components/Login';
 import HomeSF from './components/HomeSF';
 import HomeO from './components/HomeO';
 import FoodItemState from './components/context/FoodItemState';
+import { AuthContextProvider } from './components/context/AuthContext';
+import Protected from './components/Protected';
 
 function App() {
   return (
-    <FoodItemState>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/HomeO" element={<HomeO />} />
-          <Route path="/HomeSF" element={<HomeSF />} />   
-        </Routes>
-      </BrowserRouter>
-    </FoodItemState>
+    <>
+      <AuthContextProvider>
+        <FoodItemState>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/HomeO" element={<HomeO />} />
+              <Route path="/HomeSF" element={<Protected><HomeSF /></Protected>} />
+            </Routes>
+          </BrowserRouter>
+        </FoodItemState>
+      </AuthContextProvider>
+    </>
   );
 }
 
