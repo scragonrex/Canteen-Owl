@@ -15,8 +15,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Login />} />
-          <Route path="/HomeSF" element={<HomeSF />} />
           <Route path="/HomeO" element={<HomeO />} />
+          <Route path="/HomeSF" element={<HomeSF />} />   
         </Routes>
       </BrowserRouter>
     </FoodItemState>

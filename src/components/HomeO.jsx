@@ -9,7 +9,13 @@ import FoodItemContext from './context/FoodItemContext';
 const HomeO = () => {
   const context = useContext(FoodItemContext);
   const items = context.allFoodItem;
-  console.log(items);
+  const addMenu = context.addMenu;
+  // const show =context.showMenu;
+  const {menusf} =context;
+  console.log("menu for student",menusf);
+  const handleClick = (e)=>{
+    addMenu();
+  }
   return (
     <>
       <Navabar />
@@ -17,15 +23,15 @@ const HomeO = () => {
       <Box p={2} sx={{ display: 'grid', gap: 2, gridTemplateColumns: { xs: 'repeat(1,1fr)', sm: 'repeat(3, 1fr)' }, }}>
         {
           items.map((item)=>{
-            return <FoodItem key={item.id} name={item.name} price={item.price} category={item.category} image={item.image} />
+            return <FoodItem key={item.id} id={item.id} name={item.name} price={item.price} category={item.category} image={item.image} />
           })
         }
       </Box>
       <Box m={1} p={1} sx={{display:'flex', justifyContent:'center'}}>
-      <Button variant="contained">Post this Menu</Button>
+      <Button variant="contained" onClick={handleClick}>Post this Menu</Button>
       </Box>
     </>
   )
 }
 
-export default HomeO
+export default HomeO;
