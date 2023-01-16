@@ -19,7 +19,7 @@ const Login = () => {
     },[user])
     return (
         <Box sx={{ display: 'flex',height:'100vh', alignItems: 'center', justifyContent: 'center' }}>
-            <Box border={1} sx={{ display: 'flex', height:'50vh', width:'30%', alignItems: 'center', justifyContent: 'center'}}>
+            <Box backgroundColor='white' borderRadius='10px' sx={{ display: 'flex', height:'50vh', width:'30%', alignItems: 'center', justifyContent: 'center',boxShadow: '0px 0px 6px 0px #dee2e8' }}>
             <GoogleButton onClick={handleSignIn}/>
             </Box>
         </Box>
